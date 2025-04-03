@@ -16,8 +16,13 @@ class HomeController{
         }
     }
     
-    aboutPage(req, res) {
-        res.send('about page')
+    async aboutPage(req, res) {
+        try {
+            res.render('about')
+        } catch (error) {
+            console.log(error);
+            
+        }
     }
 
     blogPage(req, res) {
