@@ -25,8 +25,12 @@ class HomeController{
         }
     }
 
-    blogPage(req, res) {
-        res.send('BLOG PAGE')
+    async blogPage(req, res) {
+        try {
+            res.render('blog')
+        } catch (error) {
+            console.log(error);
+        }
     }
 }
 
