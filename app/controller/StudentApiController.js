@@ -1,9 +1,12 @@
-const Student=require('../model/student')
+const Student = require('../model/student')
+const fs=require('fs')
 
 class StudentApiController{
 
 
     async craeteStudent(req, res) {
+        //console.log(req.file);
+        
         try {
             const { name, email, phone } = req.body
             
@@ -11,6 +14,9 @@ class StudentApiController{
                name,email,phone
 
             })
+            if (req.file) {
+                studentdata.image = req.file.path
+            }
 
             const data = await studentdata.save()
             res.status(200).json({
