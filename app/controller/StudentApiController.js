@@ -81,7 +81,7 @@ class StudentApiController{
             const id = req.params.id
             const {name,email,phone}=req.body
             const updatedata = await Student.findByIdAndUpdate(id, {
-                name,email,phone
+                name,email,phone 
             })
           
                 res.status(200).json({

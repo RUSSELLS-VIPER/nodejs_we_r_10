@@ -21,7 +21,8 @@ const storage = multer.diskStorage({
         const fileName = file.originalname.split(' ').join('-');
         const extension = FILE_TYPE_MAP[file.mimetype];
         cb(null, `${fileName}-${Date.now()}.${extension}`)
-    }
+    },
+    
 })
 
 const studentImageUpload = multer({ storage: storage });

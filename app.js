@@ -11,6 +11,7 @@ const app = express()
 dbConnection()
 app.use(cors())
 app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
 //view engine set
 app.set('view engine', 'ejs')
 app.set('views', 'views')
@@ -19,12 +20,15 @@ app.set('views', 'views')
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/uploads', express.static(path.join(__dirname, '/uploads')))
+
 //app.use('/uploads', express.static('uploads'))
 const homeRouter = require('./app/router/HomeRouter')
 app.use(homeRouter)
 
 const StudentRoute = require('./app/router/StudentApiRoute')
-app.use('/api',StudentRoute)
+app.use('/api', StudentRoute)
+const EjsRoute = require('./app/router/crudejsRoute')
+app.use(EjsRoute)
 const port = 3007
 
 app.listen(port, () => {

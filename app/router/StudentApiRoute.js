@@ -6,7 +6,8 @@ const router = express.Router()
 
 
 
-router.post('/create/student',studentImageUpload.single('image'),StudentApiController.craeteStudent)
+router.post('/create/student', studentImageUpload.single('image'), StudentApiController.craeteStudent)
+
 router.get('/student',StudentApiController.getStudent)
 router.get('/student/edit/:id',StudentApiController.editStudent)
 // router.get('/student/edit/:id',StudentApiController.editStudent)
