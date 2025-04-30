@@ -67,9 +67,9 @@ class AuthController{
                 _id: user._id,
                 name: user.name,
                 email: user.email
-            }, process.env.JWT_ACCESS_TOKEN_SECRET_KEY, { expiresIn: "2h" })
+            }, process.env.JWT_ACCESS_TOKEN_SECRET_KEY, { expiresIn: "10d" })
 
-            res.status(200).json({
+            return res.status(200).json({
                 message: 'Login successful',
                 token,
                 user: {
@@ -83,6 +83,23 @@ class AuthController{
             console.log(Error);
             
         }
+
+    }
+
+    async userprofile(req, res) {
+        return res.status(200).json({
+            message: 'welcome to user profile page',
+            data:req.user
+           
+        });
+
+    }
+    async updatePassword(req, res) {
+        return res.status(200).json({
+            message: 'welcome to user update page',
+           
+           
+        });
 
     }
 
